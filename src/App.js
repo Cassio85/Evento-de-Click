@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
 
-function App() {
+export default function App() {
+
+  const [ novoEstilo, setNovoEstilo ] = useState('bg-vermelho');
+
+  const alterarEstilo = () => {
+    setNovoEstilo('bg-azul');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='display'>
+      <div className='container'>
+        <h2>Alterando estilo do elemento</h2>
+        <div className={ novoEstilo }></div>
+        <p>Clique no botão para alterar o estilo do elemento acima.</p>
+        <button onClick={ alterarEstilo }>Alterar</button>
+      </div>
     </div>
   );
 }
-
-export default App;
